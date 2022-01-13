@@ -12,20 +12,14 @@ import (
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Value 1: ")
-	input1, _ := reader.ReadString('\n')
-	float1, err := strconv.ParseFloat(strings.TrimSpace(input1), 64)
-	if err != nil {
-		fmt.Println(err)
-		panic("Value 1 must be a number")
-	}
-
-	fmt.Print("Value 2: ")
-	input2, _ := reader.ReadString('\n')
-	float2, err := strconv.ParseFloat(strings.TrimSpace(input2), 64)
-	if err != nil {
-		fmt.Println(err)
-		panic("Value 2 must be a number")
+	for i := 0; i < 2; i++ {
+		fmt.Print("Value", i+1, ":")
+		input, _ := reader.ReadString('\n')
+		float, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
+		if err != nil {
+			fmt.Println(err)
+			panic("Value must be a number")
+		}
 	}
 
 	sum := float1 + float2
